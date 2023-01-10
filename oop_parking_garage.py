@@ -38,15 +38,15 @@ class ParkingGarage():
     # INPUT COULD BE THEIR CREDIT CARD BEING 'INPUTTED'? 
         while self.currentTicket['paid'] == False:
             payment = input("Please insert your credit card, and then type 'done' ")
-                if payment == 'done':
+            if payment == 'done':
             # - This should update the "currentTicket" dictionary key "paid" to True 
-                    self.currentTicket['paid':] = self.currentTicket['paid': True]
+                self.currentTicket['paid':] = self.currentTicket['paid': True]
             # - If the payment variable is not empty (meaning the ticket has been paid) -> 
 #           display a message to the user that their ticket has been paid and they have 15mins to leave
 #           
-                    print('Your ticket has been paid. You have 15 minutes to exit the garage.')
-                else:
-                    print('Please try paying for your ticket again.') 
+                print('Your ticket has been paid. You have 15 minutes to exit the garage.')
+            else:
+                print('Please try paying for your ticket again.') 
 
 
     def leaveGarage(self):
@@ -67,4 +67,17 @@ class ParkingGarage():
 
 new_ticket = ParkingGarage([], [], {})
 
+
+# Do I need to create a function to run it? Yeah, probably
 def run():
+    while True:
+        response = input('Welcome. Do you want to take a ticket or pay for your stay? Enter: take / pay')
+        if response.lower() == "take":
+            takeTicket()
+            print("Your ticket is printing. Make sure to hold on to it to exit the garage.")
+            break
+        elif response.lower() == "pay":
+            payForParking()
+            leaveGarage()
+
+run()
